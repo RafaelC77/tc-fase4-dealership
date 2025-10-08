@@ -1,78 +1,58 @@
-# appcarsales
+# App Car Dealership - Microsserviço de Gerenciamento de Veículos
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Sobre o Projeto
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+O **App Car Dealership** é um microsserviço desenvolvido para concessionárias de carros, responsável pelo gerenciamento completo do catálogo de veículos. Ele concentra as funcionalidades de cadastro, consulta, atualização e controle de status de carros disponíveis para venda.
 
-## Running the application in dev mode
+Este serviço faz parte de uma arquitetura de microsserviços, comunicando-se com outros serviços através de APIs REST para garantir a sincronização de dados entre diferentes domínios do negócio.
 
-You can run your application in dev mode that enables live coding using:
+## 🛠️ Tecnologias Utilizadas
 
-```shell script
-./mvnw quarkus:dev
-```
+### Core
+- **Java 21** - Linguagem de programação
+- **Quarkus 3.26.3** - Framework supersônico e subatômico Java
+- **Jakarta EE** - Especificação enterprise para Java
+- **Maven** - Gerenciamento de dependências e build
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+### Persistência
+- **Hibernate ORM com Panache** - Simplificação do ORM através do padrão Active Record
+- **MySQL** - Banco de dados relacional
+- **H2 Database** - Banco em memória para testes
 
-## Packaging and running the application
+### APIs e Comunicação
+- **Quarkus REST** - Implementação moderna de Jakarta REST
+- **Jackson** - Serialização/deserialização JSON
+- **REST Client** - Cliente HTTP para comunicação entre microsserviços
 
-The application can be packaged using:
+### Infraestrutura e Deploy
+- **Docker** - Containerização da aplicação
+- **Amazon ECS** - Orquestração de containers na AWS
+- **Amazon ECR** - Registro de imagens Docker
+- **Amazon RDS** - Banco de dados MySQL gerenciado
+- **GitHub Actions** - CI/CD pipeline
 
-```shell script
-./mvnw package
-```
+### Qualidade e Testes
+- **JUnit 5** - Framework de testes
+- **Mockito** - Mock de dependências
+- **REST Assured** - Testes de APIs REST
+- **JaCoCo** - Cobertura de código
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+## 💻 Como Executar Localmente
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+Com o docker rodando, basta executar o comando abaixo:
 
-If you want to build an _über-jar_, execute the following command:
+`quarkus dev`
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+o banco de dados será criado automaticamente pelo quarkus utilizando o docker.
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+A aplicação estará disponível em: http://localhost:8080
 
-## Creating a native executable
+Swagger UI: http://localhost:8080/q/swagger-ui/
 
-You can create a native executable using:
+## Como Executar os Testes
 
-```shell script
-./mvnw package -Dnative
-```
+execute o comando abaixo:
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+`mvn clean verify`
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/appcarsales-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
-
-## Related Guides
-
-- REST ([guide](https://quarkus.io/guides/rest)): A Jakarta REST implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- REST Jackson ([guide](https://quarkus.io/guides/rest#json-serialisation)): Jackson serialization support for Quarkus REST. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it
-- Hibernate ORM with Panache ([guide](https://quarkus.io/guides/hibernate-orm-panache)): Simplify your persistence code for Hibernate ORM via the active record or the repository pattern
-- JDBC Driver - MySQL ([guide](https://quarkus.io/guides/datasource)): Connect to the MySQL database via JDBC
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
-
-[Related Hibernate with Panache section...](https://quarkus.io/guides/hibernate-orm-panache)
-
-
-### REST
-
-Easily start your REST Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+para visualizar os resultados dos testes, abra o arquivo `target/coverage/index.html` no seu navegador.
