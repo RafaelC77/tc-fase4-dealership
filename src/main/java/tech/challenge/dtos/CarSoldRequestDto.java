@@ -22,5 +22,7 @@ public class CarSoldRequestDto {
     public LocalDateTime getSaleDate() {
         return saleDate;
     }
-    public void setSaleDate(LocalDateTime saleDate) {}
+    public void setSaleDate(LocalDateTime saleDate) {
+    this.saleDate = saleDate;
+}
 }

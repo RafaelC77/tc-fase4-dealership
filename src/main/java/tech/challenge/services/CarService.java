@@ -64,12 +64,13 @@ public class CarService {
     }
 
     public CarEntity setCarAsSold(CarSoldRequestDto request) {
-        CarEntity existingCar = CarEntity.findById(request.getCarId());
+        UUID carId = UUID.fromString(request.getCarId());
+        CarEntity existingCar = CarEntity.findById(carId);
         if (existingCar != null) {
             existingCar.setStatus(CarStatus.SOLD);
             existingCar.setSaleDate(request.getSaleDate());
         }
         return existingCar;
-    };
+    }
 
 }
