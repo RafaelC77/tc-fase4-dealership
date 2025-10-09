@@ -56,3 +56,8 @@ execute o comando abaixo:
 `mvn clean verify`
 
 para visualizar os resultados dos testes, abra o arquivo `target/coverage/index.html` no seu navegador.
+
+## Cobertura de Código
+
+<img width="1552" height="324" alt="image" src="https://github.com/user-attachments/assets/deb0f749-b9f3-4874-af4b-d760bfa01c6e" />
+
