@@ -6,6 +6,8 @@ O **App Car Dealership** é um microsserviço desenvolvido para concessionárias
 
 Este serviço faz parte de uma arquitetura de microsserviços, comunicando-se com o serviço de vendas através de APIs REST para garantir a sincronização de dados entre diferentes domínios do negócio.
 
+### link para o vídeo com a demonstração do projeto: https://youtu.be/WadUN7Y8f_o
+
 ## 🛠️ Tecnologias Utilizadas
 
 ### Core
